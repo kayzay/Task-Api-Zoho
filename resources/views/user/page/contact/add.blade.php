@@ -8,6 +8,11 @@
             @endforeach
         </div>
     @endif
+    @if(Session::has('status'))
+        <div class="alert alert-success" role="alert">
+            {!!Session::get('status')!!}
+        </div>
+    @endif
     <form name="add_contact" method="post" action="{{route('save_contact')}}">
         @csrf
         <div class="mb-3">
@@ -42,6 +47,7 @@
             <input  name="email"
                     type="text"
                     class="form-control"
+                    value="{{old('email', '')}}"
                     id="email">
         </div>
         <div class="mb-3">

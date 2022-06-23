@@ -8,6 +8,11 @@
             @endforeach
         </div>
     @endif
+    @if(Session::has('status'))
+        <div class="alert alert-success" role="alert">
+            {!!Session::get('status')!!}
+        </div>
+    @endif
     <form name="add_contact" method="post" action="{{route('save_deals')}}">
         @csrf
         <div class="mb-3">
